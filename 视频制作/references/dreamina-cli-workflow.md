@@ -1,7 +1,7 @@
 # 即梦 CLI 操作流程 (dreamina-cli-workflow.md)
 
 > 版本：v1.0
-> 用途：video-producer 读取此文件，统一通过即梦 CLI 完成图片和视频生成。
+> 用途：视频制作读取此文件，统一通过即梦 CLI 完成图片和视频生成。
 > 方法来源：用户提供的《即梦 CLI 体验指南》。
 > 重要说明：CLI 品牌名是即梦，但命令名统一使用 `dreamina`。
 
@@ -92,7 +92,7 @@ dreamina text2video \
 
 适用：
 - 没有首帧素材，直接根据镜头描述生成视频。
-- 默认是 video-producer 的首选模式。
+- 默认是视频制作的首选模式。
 
 ### 图生视频
 
@@ -238,7 +238,7 @@ dreamina list_task --submit_id=<你的_submit_id>
 ### 结果落盘
 
 - 生成结果默认下载到项目内 `output/videos/YYYY-MM-DD-[topic]/raw/`
-- 成片候选、封面候选、任务 JSON、submit_id 记录都要保留，便于 review-ops 复核。
+- 成片候选、封面候选、任务 JSON、submit_id 记录都要保留，便于审核运营复核。
 
 ---
 

@@ -6,15 +6,15 @@ A portable skill set for the Anbege (安贝格) marketing content factory system
 
 | Skill | Role | Trigger examples |
 |-------|------|-----------------|
-| `trend-hunter` | Scan trends, score topics against brand pillars | "今日选题" "找热点" "scan trends" |
-| `copywriter` | Generate scripts and copy from confirmed topics | "写脚本" "write script" "生成文案" |
-| `video-producer` | Break scripts into storyboards + Dreamina CLI generation jobs | "做分镜" "generate video" "拆镜头" "即梦" "dreamina" |
-| `review-ops` | Quality check scripts, assemble publish packs | "审核脚本" "review script" "质检" |
+| `热点猎手` | Scan trends, score topics against brand pillars | "今日选题" "找热点" "scan trends" |
+| `文案写手` | Generate scripts and copy from confirmed topics | "写脚本" "write script" "生成文案" |
+| `视频制作` | Break scripts into storyboards + Dreamina CLI generation jobs | "做分镜" "generate video" "拆镜头" "即梦" "dreamina" |
+| `审核运营` | Quality check scripts, assemble publish packs | "审核脚本" "review script" "质检" |
 
 ## Pipeline
 
 ```
-trend-hunter → [you confirm] → copywriter → video-producer → review-ops → [you approve] → publish
+热点猎手 → [you confirm] → 文案写手 → 视频制作 → 审核运营 → [you approve] → publish
 ```
 
 ## Installation
@@ -47,10 +47,10 @@ Use the skills as a pipeline, but keep the handoff fields stable so downstream a
 
 | Upstream skill | Required handoff fields | Main output |
 |-------|------|-----------------|
-| `trend-hunter` | topic title, source, pillar, format, audience tier, risk note | scored topic brief |
-| `copywriter` | title, pillar, format, audience tier, brand mention level | final script with cover, comments, DM reply |
-| `video-producer` | title, duration, shot list, subtitles, cover prompt | storyboard + generation prompts |
-| `review-ops` | pass/fail result, issue list, publish readiness | review report + publish pack |
+| `热点猎手` | topic title, source, pillar, format, audience tier, risk note | scored topic brief |
+| `文案写手` | title, pillar, format, audience tier, brand mention level | final script with cover, comments, DM reply |
+| `视频制作` | title, duration, shot list, subtitles, cover prompt | storyboard + generation prompts |
+| `审核运营` | pass/fail result, issue list, publish readiness | review report + publish pack |
 
 If a required field is missing, the current skill should state the assumption explicitly instead of silently guessing.
 
@@ -60,7 +60,7 @@ Each skill is self-contained with its own reference files:
 
 ```
 skills/
-├── trend-hunter/
+├── 热点猎手/
 │   ├── SKILL.md
 │   └── references/
 │       ├── pillars.md
@@ -68,7 +68,7 @@ skills/
 │       ├── audience.md
 │       ├── evergreen-topics.md
 │       └── taboo.md
-├── copywriter/
+├── 文案写手/
 │   ├── SKILL.md
 │   └── references/
 │       ├── voice.md
@@ -77,11 +77,11 @@ skills/
 │       ├── offer.md
 │       ├── hooks.md
 │       └── cta.md
-├── video-producer/
+├── 视频制作/
 │   ├── SKILL.md
 │   └── references/
 │       └── dreamina-cli-workflow.md  ← update this with your Jimeng / Dreamina CLI workflow
-├── review-ops/
+├── 审核运营/
 │   ├── SKILL.md
 │   └── references/
 │       ├── review-rules.md
@@ -101,4 +101,4 @@ When you update brand guidelines (voice, taboo, offer, etc.), update the referen
 
 ## Video Producer Note
 
-The `video-producer` skill includes a `dreamina-cli-workflow.md` reference file. Fill it in with your Jimeng / Dreamina CLI install, login, command usage, prompt rules, and troubleshooting steps. The skill will automatically use the latest version.
+The `视频制作` skill includes a `dreamina-cli-workflow.md` reference file. Fill it in with your Jimeng / Dreamina CLI install, login, command usage, prompt rules, and troubleshooting steps. The skill will automatically use the latest version.
