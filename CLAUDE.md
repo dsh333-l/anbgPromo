@@ -4,17 +4,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repo Is
 
-This is the **Anbege (安贝格) Marketing Skills** repository — a set of AI agent skill definitions for a content factory pipeline that produces short-video marketing content for a Chinese window/door brand. There is no buildable code; the repo consists entirely of Markdown skill definitions and reference files.
+This is the **Anbege (安贝格) Marketing Skills** repository — a set of AI agent skill definitions for a Chinese window/door brand. It contains two independent pipelines:
 
-## Pipeline
+1. **营销内容流水线** — produces short-video marketing content
+2. **客户设计方案流水线** — guides customers from on-site opening photos to a full branded design proposal
 
-The four skills form a strict sequential pipeline:
+There is no buildable code; the repo consists entirely of Markdown skill definitions and reference files.
+
+## Pipelines
+
+**营销内容流水线**（strict sequential）:
 
 ```
 热点猎手 → [user confirms topic] → 文案写手 → 视频制作 → 审核运营 → [user approves] → publish
 ```
 
-Each skill is defined by a `SKILL.md` (with YAML frontmatter: name, description, trigger phrases) and a `references/` directory containing brand knowledge files.
+**客户设计方案流水线**（standalone, interactive）:
+
+```
+门窗设计师 (洞口照片 → 尺寸 → 开启方式 → 风格 → 颜色 → AI 出图 → 整屋延展 → 迭代 → 一键导出)
+```
+
+Each skill is defined by a `SKILL.md` (with YAML frontmatter: name, description, trigger phrases) and a `references/` directory containing brand knowledge files. `门窗设计师` additionally has an `assets/` directory for user-uploaded product/style/color/brand materials.
 
 ## Key Concepts
 
@@ -35,11 +46,27 @@ Reference files (voice.md, taboo.md, offer.md, cta.md, formats.md) are intention
 
 ## Output Paths
 
+营销内容流水线：
+
 - Trend reports: `data/trend-log.md`
 - Scripts: `output/scripts/YYYY-MM-DD-[topic].md`
 - Storyboards: `output/storyboards/YYYY-MM-DD-[topic].md`
 - Videos/images: `output/videos/YYYY-MM-DD-[topic]/`
 - Publish packs: `output/publish-packs/YYYY-MM-DD-[topic]/`
+
+客户设计方案流水线（**所有目录与文件名必须中文**）：
+
+- 项目状态: `output/设计方案/[客户-项目名]/项目状态.md`
+- 洞口照片: `output/设计方案/[客户-项目名]/洞口照片/[房间标签]/[洞口编号]/照片/`
+- 分格效果图: `output/设计方案/[客户-项目名]/分格效果图/[房间标签]/[洞口编号]/第[N]版/`
+- 整屋效果图: `output/设计方案/[客户-项目名]/整屋效果图/[房间标签]/[洞口编号]/第[N]版/`
+- 单洞口最终方案: `output/设计方案/[客户-项目名]/[房间标签]-[洞口编号]-最终方案.md`
+- 导出成品方案: `output/设计方案/[客户-项目名]/成品方案/[客户姓名]-门窗设计方案-YYYY-MM-DD.md`
+
+命名规则：
+- `[洞口编号]` 用 `洞口01` `洞口02`，不用 `op-01`
+- 版本号用 `第1版` `第2版` `最终版`，不用 `v1` `v2` `final`
+- 子目录用 `照片/` `手绘/`，不用 `photos/` `sketches/`
 
 ## Language
 

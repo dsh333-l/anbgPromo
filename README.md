@@ -4,6 +4,8 @@ A portable skill set for the Anbege (安贝格) marketing content factory system
 
 ## Skills
 
+### 营销内容流水线
+
 | Skill | Role | Trigger examples |
 |-------|------|-----------------|
 | `热点猎手` | Scan trends, score topics against brand pillars | "今日选题" "找热点" "scan trends" |
@@ -11,10 +13,24 @@ A portable skill set for the Anbege (安贝格) marketing content factory system
 | `视频制作` | Break scripts into storyboards + Dreamina CLI generation jobs | "做分镜" "generate video" "拆镜头" "即梦" "dreamina" |
 | `审核运营` | Quality check scripts, assemble publish packs | "审核脚本" "review script" "质检" |
 
+### 客户设计方案
+
+| Skill | Role | Trigger examples |
+|-------|------|-----------------|
+| `门窗设计师` | Guide customers from opening photos to a full branded design proposal | "设计门窗" "出方案" "洞口照片" "效果图" "整屋方案" "导出方案" |
+
 ## Pipeline
+
+营销内容流水线：
 
 ```
 热点猎手 → [you confirm] → 文案写手 → 视频制作 → 审核运营 → [you approve] → publish
+```
+
+客户设计方案流水线（独立流水线）：
+
+```
+门窗设计师 (洞口照片 → 尺寸 → 开启方式 → 风格 → 颜色 → AI 出图 → 整屋延展 → 迭代 → 一键导出)
 ```
 
 ## Installation
@@ -92,6 +108,22 @@ skills/
 │       ├── cta.md
 │       ├── publish-checklist.md
 │       └── iteration-rules.md
+├── 门窗设计师/
+│   ├── SKILL.md
+│   ├── references/
+│   │   ├── opening-types.md
+│   │   ├── product-series.md          ← 用户后续上传素材后补全
+│   │   ├── style-templates.md         ← 用户后续上传素材后补全
+│   │   ├── color-palette.md
+│   │   ├── room-style-presets.md
+│   │   ├── export-template.md
+│   │   ├── dreamina-design-workflow.md
+│   │   └── taboo.md
+│   └── assets/                        ← 用户上传产品资料、风格模板图、色卡、品牌物料的目录
+│       ├── product-series/
+│       ├── style-templates/
+│       ├── color-swatches/
+│       └── brand/
 └── README.md
 ```
 
